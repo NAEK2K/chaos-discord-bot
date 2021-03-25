@@ -1,0 +1,5 @@
+{
+    "command_start": "$",
+    "profanity_filter": false,
+    "bot_token": "discord_token"
+}
