@@ -2,5 +2,6 @@
     "command_start": "$",
     "profanity_filter": false,
     "bot_status": "robot.",
+    "play_volume": 0.5,
     "bot_token": "discord_token"
 }

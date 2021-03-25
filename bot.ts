@@ -45,7 +45,7 @@ const filter_message = async (msg: any) => {
 }
 
 const play = async (connection: any, url: string) => {
-    connection.play(await ytdl(url), { type: "opus" })
+    connection.play(await ytdl(url), { type: "opus", volume: config.play_volume })
 }
 
 const handle_command = async (msg: any, msg_split: string[]): Promise<any> => {
