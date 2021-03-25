@@ -150,5 +150,5 @@ client.on("messageUpdate", (oldmsg: any, msg: any) => {
 })
 
 client.login(config.bot_token).then(() => {
-    client.user.setActivity("robot.")
+    client.user.setActivity(config.bot_status)
 })

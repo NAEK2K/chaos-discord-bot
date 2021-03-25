@@ -1,5 +1,6 @@
 {
     "command_start": "$",
     "profanity_filter": false,
+    "bot_status": "robot.",
     "bot_token": "discord_token"
 }
