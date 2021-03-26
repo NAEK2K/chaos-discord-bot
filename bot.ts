@@ -49,6 +49,11 @@ const play = async (connection: any, url: string) => {
 }
 
 const handle_command = async (msg: any, msg_split: string[]): Promise<any> => {
+    if (config.admin_only) {
+        if (!msg.member.permissions.has("ADMINISTRATOR")) {
+            throw "Admin only mode is enabled."
+        }
+    }
     if (msg_split[0] == "random") {
         if (msg_split[1] == "option") {
             let option_size = parseInt(msg_split[2])
@@ -76,12 +81,15 @@ const handle_command = async (msg: any, msg_split: string[]): Promise<any> => {
             })
         })
     }
+    if (msg_split[0] == "join") {
+        msg.member.voice.channel.join()
+        return true
+    }
     if (msg_split[0] == "dc") {
         if (msg.guild.me.voice.channel) {
             msg.guild.me.voice.channel.leave()
-            msg.channel.send("Disconnected.").then(() => {
-                return true
-            })
+            msg.channel.send("Disconnected.")
+            return true
         } else {
             throw "Not in a voice channel."
         }
